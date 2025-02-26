@@ -73,15 +73,19 @@ class TutteEmbedding {
 					
 					const theta = l/radius;
 					var sf = 1;
-					const t = 1.0;
+					const t = 1.0; //you can change t from 0 to 1 to interpolate between a circle and a square 
 					
 					
-					// Please edit here to see if you can make the parametrisation map to a square instead of a circle.
+					// This is a neat way to parametrise the boundary of a square, in polar form.
+					// Think about why this works. (Just consider theta in 0 to pi/2 to begin with.)
+					sf = Math.min(Math.abs(1/Math.cos(theta)), Math.abs(1/Math.sin(theta)));
+					
+					sf = 0.8 * (1-t) + t * sf;
+					
+
 					
 					u0 = radius * Math.cos(theta) * sf;
 					v0 = -radius * Math.sin(theta) * sf;
-					
-					
 					
 					this.ubar.set(u0, i);
 					this.vbar.set(v0, i);
