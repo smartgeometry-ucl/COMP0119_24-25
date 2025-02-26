@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<!-- saved from url=(0053)https://isaacguan.github.io/projects/tutte-embedding/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Tutte Embedding</title>
+	
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	<link rel="stylesheet" href="./Tutte Embedding_files/main.css">
+<style type="text/css">.dg ul{list-style:none;margin:0;padding:0;width:100%;clear:both}.dg.ac{position:fixed;top:0;left:0;right:0;height:0;z-index:0}.dg:not(.ac) .main{overflow:hidden}.dg.main{transition:opacity .1s linear}.dg.main.taller-than-window{overflow-y:auto}.dg.main.taller-than-window .close-button{opacity:1;margin-top:-1px;border-top:1px solid #2c2c2c}.dg.main ul.closed .close-button{opacity:1!important}.dg.main .close-button.drag,.dg.main:hover .close-button{opacity:1}.dg.main .close-button{transition:opacity .1s linear;border:0;line-height:19px;height:20px;cursor:pointer;text-align:center;background-color:#000}.dg.main .close-button.close-top{position:relative}.dg.main .close-button.close-bottom{position:absolute}.dg.main .close-button:hover{background-color:#111}.dg.a{float:right;margin-right:15px;overflow-y:visible}.dg.a.has-save>ul.close-top{margin-top:0}.dg.a.has-save>ul.close-bottom{margin-top:27px}.dg.a.has-save>ul.closed{margin-top:0}.dg.a .save-row{top:0;z-index:1002}.dg.a .save-row.close-top{position:relative}.dg.a .save-row.close-bottom{position:fixed}.dg li{transition:height .1s ease-out;transition:overflow .1s linear}.dg li:not(.folder){cursor:auto;height:27px;line-height:27px;padding:0 4px 0 5px}.dg li.folder{padding:0;border-left:4px solid transparent}.dg li.title{margin-left:-4px}.dg .closed li:not(.title),.dg .closed ul li,.dg .closed ul li>*{height:0;overflow:hidden;border:0}.dg .cr{clear:both;padding-left:3px;height:27px;overflow:hidden}.dg .property-name{cursor:default;float:left;clear:left;width:40%;overflow:hidden;text-overflow:ellipsis}.dg .c{float:left;width:60%;position:relative}.dg .c input[type=text]{border:0;margin-top:4px;padding:3px;width:100%;float:right}.dg .has-slider input[type=text]{width:30%;margin-left:0}.dg .slider{float:left;width:66%;margin-left:-5px;margin-right:0;height:19px;margin-top:4px}.dg .slider-fg{height:100%}.dg .c input[type=checkbox]{margin-top:7px}.dg .c select{margin-top:5px}.dg .cr.boolean,.dg .cr.boolean *,.dg .cr.function,.dg .cr.function *,.dg .cr.function .property-name{cursor:pointer}.dg .cr.color{overflow:visible}.dg .selector{display:none;position:absolute;margin-left:-9px;margin-top:23px;z-index:10}.dg .c:hover .selector,.dg .selector.drag{display:block}.dg li.save-row{padding:0}.dg li.save-row .button{display:inline-block;padding:0 6px}.dg.dialogue{background-color:#222;width:460px;padding:15px;font-size:13px;line-height:15px}#dg-new-constructor{padding:10px;color:#222;font-family:Monaco,monospace;font-size:10px;border:0;resize:none;box-shadow:inset 1px 1px 1px #888;word-wrap:break-word;margin:12px 0;display:block;width:440px;overflow-y:scroll;height:100px;position:relative}#dg-local-explain{display:none;font-size:11px;line-height:17px;border-radius:3px;background-color:#333;padding:8px;margin-top:10px}#dg-local-explain code{font-size:10px}#dat-gui-save-locally{display:none}.dg{color:#eee;font:11px Lucida Grande,sans-serif;text-shadow:0 -1px 0 #111}.dg.main::-webkit-scrollbar{width:5px;background:#1a1a1a}.dg.main::-webkit-scrollbar-corner{height:0;display:none}.dg.main::-webkit-scrollbar-thumb{border-radius:5px;background:#676767}.dg li:not(.folder){background:#1a1a1a;border-bottom:1px solid #2c2c2c}.dg li.save-row{line-height:25px;background:#dad5cb;border:0}.dg li.save-row select{margin-left:5px;width:108px}.dg li.save-row .button{margin-left:5px;margin-top:1px;border-radius:2px;font-size:9px;line-height:7px;padding:4px 4px 5px;background:#c5bdad;color:#fff;text-shadow:0 1px 0 #b0a58f;box-shadow:0 -1px 0 #b0a58f;cursor:pointer}.dg li.save-row .button.gears{background:#c5bdad url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAANCAYAAAB/9ZQ7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAQJJREFUeNpiYKAU/P//PwGIC/ApCABiBSAW+I8AClAcgKxQ4T9hoMAEUrxx2QSGN6+egDX+/vWT4e7N82AMYoPAx/evwWoYoSYbACX2s7KxCxzcsezDh3evFoDEBYTEEqycggWAzA9AuUSQQgeYPa9fPv6/YWm/Acx5IPb7ty/fw+QZblw67vDs8R0YHyQhgObx+yAJkBqmG5dPPDh1aPOGR/eugW0G4vlIoTIfyFcA+QekhhHJhPdQxbiAIguMBTQZrPD7108M6roWYDFQiIAAv6Aow/1bFwXgis+f2LUAynwoIaNcz8XNx3Dl7MEJUDGQpx9gtQ8YCueB+D26OECAAQDadt7e46D42QAAAABJRU5ErkJggg==) 2px 1px no-repeat;height:7px;width:8px}.dg li.save-row .button:hover{background-color:#bab19e;box-shadow:0 -1px 0 #b0a58f}.dg li.folder{border-bottom:0}.dg li.title{padding-left:16px;background:#000 url(data:image/gif;base64,R0lGODlhBQAFAJEAAP////Pz8////////yH5BAEAAAIALAAAAAAFAAUAAAIIlI+hKgFxoCgAOw==) 6px 10px no-repeat;cursor:pointer;border-bottom:1px solid hsla(0,0%,100%,.2)}.dg .closed li.title{background-image:url(data:image/gif;base64,R0lGODlhBQAFAJEAAP////Pz8////////yH5BAEAAAIALAAAAAAFAAUAAAIIlGIWqMCbWAEAOw==)}.dg .cr.boolean{border-left:3px solid #806787}.dg .cr.color{border-left:3px solid}.dg .cr.function{border-left:3px solid #e61d5f}.dg .cr.number{border-left:3px solid #2fa1d6}.dg .cr.number input[type=text]{color:#2fa1d6}.dg .cr.string{border-left:3px solid #1ed36f}.dg .cr.string input[type=text]{color:#1ed36f}.dg .cr.boolean:hover,.dg .cr.function:hover{background:#111}.dg .c input[type=text]{background:#303030;outline:none}.dg .c input[type=text]:hover{background:#3c3c3c}.dg .c input[type=text]:focus{background:#494949;color:#fff}.dg .c .slider{background:#303030;cursor:ew-resize}.dg .c .slider-fg{background:#2fa1d6;max-width:100%}.dg .c .slider:hover{background:#3c3c3c}.dg .c .slider:hover .slider-fg{background:#44abda}</style></head>
+
+<body>
+	<div id="info">
+		<input type="file" id="fileInput" style="visibility:hidden">
+	</div>
+	<div id="info">
+		<h2>Tutte Embedding</h2>
+		<div id="meta"></div>
+	</div>
+	<script src="./Tutte Embedding_files/three.js"></script>
+	<script src="./Tutte Embedding_files/dat.gui.min.js"></script>
+	<script src="./Tutte Embedding_files/detector.js"></script>
+	<script src="./Tutte Embedding_files/trackball-controls.js"></script>
+	<script src="./Tutte Embedding_files/linear-algebra-asm.js"></script>
+	<script src="./Tutte Embedding_files/vector.js"></script>
+	<script src="./Tutte Embedding_files/emscripten-memory-manager.js"></script>
+	<script src="./Tutte Embedding_files/dense-matrix.js"></script>
+	<script src="./Tutte Embedding_files/sparse-matrix.js"></script>
+	<script src="./Tutte Embedding_files/vertex.js"></script>
+	<script src="./Tutte Embedding_files/edge.js"></script>
+	<script src="./Tutte Embedding_files/face.js"></script>
+	<script src="./Tutte Embedding_files/halfedge.js"></script>
+	<script src="./Tutte Embedding_files/corner.js"></script>
+	<script src="./Tutte Embedding_files/mesh.js"></script>
+	<script src="./Tutte Embedding_files/geometry.js"></script>
+	<script src="./Tutte Embedding_files/face(1).js"></script>
+	<script src="./Tutte Embedding_files/meshio.js"></script>
+	<script src="./Tutte Embedding_files/colormap.js"></script>
+	<script src="./Tutte Embedding_files/distortion.js"></script>
+	<script src="./Tutte Embedding_files/solvers.js"></script>
+	<script src="./Tutte Embedding_files/tutte-embedding.js"></script>
+	<script>
+		if (!Detector.webgl) Detector.addGetWebGLMessage();
+
+		let input = document.getElementById("fileInput");
+		let renderer = undefined;
+		let camera = undefined;
+		let uvCamera = undefined;
+		let controls = undefined;
+		let shiftClick = false;
+		let showWireframe = false;
+		let scene = undefined;
+		let threeMesh = undefined;
+		let threeGeometry = undefined;
+		let wireframe = undefined;
+		let uvScene = undefined;
+		let threeUvMesh = undefined;
+		let threeUvGeometry = undefined;
+		let uvWireframe = undefined;
+		let checkerboard = undefined;
+		let threeSphereMap = new Map();
+		let materialSettings = {
+			vertexColors: THREE.VertexColors,
+			polygonOffset: true,
+			polygonOffsetFactor: 1,
+			polygonOffsetUnits: 1,
+			side: THREE.DoubleSide
+		};
+
+		let positions = undefined;
+		let uvs = undefined;
+		let normals = undefined;
+		let colors = undefined;
+		let uvColors = undefined;
+		let indices = undefined;
+
+		let memoryManager = new EmscriptenMemoryManager();
+		let mesh = undefined;
+		let geometry = undefined;
+		let parameterization = undefined;
+		let tutteEmbedding = undefined;
+
+		let filename = "face.obj";
+
+		const ORANGE = new Vector(1.0, 0.5, 0.0);
+		let guiFields = {
+			"Load Mesh": function() {
+				input.click();
+			},
+			"Export Mesh": function() {
+				exportFile(MeshIO.writeOBJ({
+					"v": uvs,
+					"vt": uvs,
+					"vn": normals,
+					"f": indices
+				}));
+			},
+			"Boundary": "By Scale",
+			"Weight": "Uniform Laplacian",
+			"Apply": function() {
+				apply(this.Boundary, this.Weight);
+
+				if (parameterization) {
+					// cleanup
+					memoryManager.deleteExcept([]);
+
+					// update uvs, colors, spheres and camera aspect ratio
+					updateUVs();
+					updateUvColors();
+					updateThreeSphereMeshes();
+					camera.aspect = 0.5 * window.innerWidth / window.innerHeight;
+					camera.updateProjectionMatrix();
+				}
+			},
+			"Show Wireframe": showWireframe
+		};
+
+		init();
+		animate();
+
+		function init() {
+			let container = document.createElement("div");
+			document.body.appendChild(container);
+
+			initRenderer(container);
+			initGUI();
+			initCamera();
+			initScene();
+			initLights();
+			initMesh(face);
+			initControls();
+			addEventListeners();
+		}
+
+		function initRenderer(container) {
+			renderer = new THREE.WebGLRenderer({
+				antialias: true
+			});
+			renderer.setPixelRatio(window.devicePixelRatio);
+			renderer.setClearColor(0xffffff, 1.0);
+			renderer.setSize(window.innerWidth, window.innerHeight);
+			container.appendChild(renderer.domElement);
+		}
+
+		function initGUI() {
+					}
+
+		window.onload = function() {
+			input.addEventListener("change", function(e) {
+				let file = input.files[0];
+				filename = file.name;
+
+				if (filename.endsWith(".obj")) {
+					let reader = new FileReader();
+					reader.onload = function(e) {
+						initMesh(reader.result);
+					}
+
+					reader.onerror = function(e) {
+						alert("Unable to load OBJ file");
+					}
+
+					reader.readAsText(file);
+
+				} else {
+					alert("Please load an OBJ file");
+				}
+			});
+		}
+
+		function exportFile(text) {
+			let element = document.createElement("a");
+			element.setAttribute("href", "data:text/plain;charset=utf-8," + encodeURIComponent(text));
+			element.setAttribute("download", filename);
+
+			element.style.display = "none";
+			document.body.appendChild(element);
+
+			element.click();
+
+			document.body.removeChild(element);
+		}
+
+		function apply(boundaryscheme, weightset) {
+			if (mesh.boundaries.length === 0) {
+				alert("Mesh must have at least one boundary loop");
+				tutteEmbedding = undefined;
+			} else {
+				tutteEmbedding = new TutteEmbedding(geometry, boundaryscheme, weightset);
+				parameterization = tutteEmbedding.apply();
+			}			
+		}
+
+		function updateUVs() {
+			for (let v of mesh.vertices) {
+				let i = v.index;
+
+				let uv = parameterization[v];
+				uvs[3 * i + 0] = uv.x;
+				uvs[3 * i + 1] = uv.y;
+				uvs[3 * i + 2] = 0;
+			}
+
+			threeGeometry.attributes.uv.needsUpdate = true;
+			wireframe.geometry = new THREE.WireframeGeometry(threeGeometry);
+
+			threeUvGeometry.attributes.position.needsUpdate = true;
+			threeUvGeometry.attributes.uv.needsUpdate = true;
+			uvWireframe.geometry = new THREE.WireframeGeometry(threeUvGeometry);
+
+			if (threeMesh.material.map === null) {
+				threeMesh.material.map = checkerboard;
+				threeMesh.material.needsUpdate = true;
+			}
+		}
+
+
+		function updateUvColors() {
+			if (parameterization) {
+				for (let v of mesh.vertices) {
+					let i = v.index;
+
+					uvColors[3 * i + 0] = ORANGE.x;
+					uvColors[3 * i + 1] = ORANGE.y;
+					uvColors[3 * i + 2] = ORANGE.z;
+				}
+
+				if (threeUvMesh.material.isMeshBasicMaterial) {
+					threeUvMesh.material = new THREE.MeshPhongMaterial(materialSettings);
+				}
+
+				if (threeUvMesh.material.map === null) {
+					threeUvMesh.material.map = checkerboard;
+					threeUvMesh.material.needsUpdate = true;
+				}
+
+				threeUvGeometry.attributes.color.needsUpdate = true;
+			}
+		}
+
+		function updateThreeSphereMeshes() {
+			for (let [index, threeSphereMesh] of threeSphereMap) {
+				let v = mesh.vertices[index];
+				let center = parameterization[v];
+
+				threeSphereMesh.position.set(center.x - 0.4, center.y, center.z);
+			}
+		}
+
+		function toggleWireframe(checked) {
+			showWireframe = checked;
+			if (true) {
+				threeMesh.add(wireframe);
+				threeUvMesh.add(uvWireframe);
+
+			} else {
+				threeMesh.remove(wireframe);
+				threeUvMesh.remove(uvWireframe);
+			}
+		}
+
+		function initCamera() {
+			const fov = 45.0;
+			const aspect = window.innerWidth / window.innerHeight;
+			const near = 0.1;
+			const far = 1000;
+			const eyeZ = 3.5;
+
+			camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
+			camera.position.z = eyeZ;
+
+			uvCamera = new THREE.PerspectiveCamera(fov, 0.5 * aspect, near, far);
+			uvCamera.position.z = eyeZ;
+		}
+
+		function initScene() {
+			scene = new THREE.Scene();
+			scene.background = new THREE.Color(0xffffff);
+
+			uvScene = new THREE.Scene();
+			uvScene.background = new THREE.Color(0xffffff);
+		}
+
+		function initLights() {
+			let ambient = new THREE.AmbientLight(0xffffff, 0.35);
+			camera.add(ambient);
+
+			let point = new THREE.PointLight(0xffffff);
+			point.position.set(2, 20, 15);
+			camera.add(point);
+
+			let uvAmbient = new THREE.AmbientLight(0xffffff, 0.35);
+			uvCamera.add(uvAmbient);
+
+			let uvPoint = new THREE.PointLight(0xffffff);
+			uvPoint.position.set(2, 20, 15);
+			uvCamera.add(uvPoint);
+
+			scene.add(camera);
+			uvScene.add(uvCamera);
+		}
+
+		function initMesh(text) {
+			let polygonSoup = MeshIO.readOBJ(text);
+			mesh = new Mesh();
+			if (mesh.build(polygonSoup)) {
+				// remove any previously loaded mesh from scene
+				scene.remove(threeMesh);
+				uvScene.remove(threeUvMesh);
+				memoryManager.deleteExcept([]);
+
+				camera.aspect = window.innerWidth / window.innerHeight;
+				camera.updateProjectionMatrix();
+				parameterization = undefined;
+
+				// create geometry object
+				geometry = new Geometry(mesh, polygonSoup["v"]);
+
+				// create THREE.js mesh (and geometry) objects
+				initThreeMesh();
+				scene.add(threeMesh);
+
+				initThreeUvMesh();
+				uvScene.add(threeUvMesh);
+
+				// toggle wireframe
+				toggleWireframe(showWireframe);
+
+				// initialize parameterizations
+				if (mesh.boundaries.length === 0) {
+					alert("Mesh must have atleast one boundary loop");
+					tutteEmbedding = undefined;
+				} else {
+					guiFields["Apply"]();
+				}
+
+				// update metadata
+				let element = document.getElementById("meta");
+				element.textContent = "";
+
+			} else {
+				alert("Unable to build halfedge mesh");
+			}
+		}
+
+		function initThreeMesh() {
+			// create geometry object
+			threeGeometry = new THREE.BufferGeometry();
+
+			// fill position, normal and color buffers
+			let V = mesh.vertices.length;
+			positions = new Float32Array(V * 3);
+			uvs = new Float32Array(V * 3);
+			normals = new Float32Array(V * 3);
+			colors = new Float32Array(V * 3);
+			for (let v of mesh.vertices) {
+				let i = v.index;
+
+				let position = geometry.positions[v];
+				positions[3 * i + 0] = position.x;
+				positions[3 * i + 1] = position.y;
+				positions[3 * i + 2] = position.z;
+
+				let normal = geometry.vertexNormalEquallyWeighted(v);
+				normals[3 * i + 0] = normal.x;
+				normals[3 * i + 1] = normal.y;
+				normals[3 * i + 2] = normal.z;
+
+				colors[3 * i + 0] = ORANGE.x;
+				colors[3 * i + 1] = ORANGE.y;
+				colors[3 * i + 2] = ORANGE.z;
+			}
+
+			// fill index buffer
+			let F = mesh.faces.length;
+			indices = new Uint32Array(F * 3);
+			for (let f of mesh.faces) {
+				let i = 0;
+				for (let v of f.adjacentVertices()) {
+					indices[3 * f.index + i++] = v.index;
+				}
+			}
+
+			// set geometry
+			threeGeometry.setIndex(new THREE.BufferAttribute(indices, 1));
+			threeGeometry.addAttribute("position", new THREE.BufferAttribute(positions, 3));
+			threeGeometry.addAttribute("uv", new THREE.BufferAttribute(uvs, 3));
+			threeGeometry.addAttribute("normal", new THREE.BufferAttribute(normals, 3));
+			threeGeometry.addAttribute("color", new THREE.BufferAttribute(colors, 3));
+
+			// create checkerboard
+			const textureHeight = 64;
+			const textureWidth = 64;
+			let checkData = new Uint8Array(textureHeight * textureWidth * 3);
+			for (let i = 0; i < textureHeight; i++) {
+				for (let j = 0; j < textureWidth; j++) {
+					let c = (((i & 0x8) === 0) ^ ((j & 0x8) === 0)) * 255;
+					if (c === 0) c = 155;
+					checkData[3 * (textureWidth * i + j) + 0] = c;
+					checkData[3 * (textureWidth * i + j) + 1] = c;
+					checkData[3 * (textureWidth * i + j) + 2] = c;
+				}
+			}
+			checkerboard = new THREE.DataTexture(checkData, textureHeight, textureWidth, THREE.RGBFormat);
+			checkerboard.wrapS = THREE.RepeatWrapping;
+			checkerboard.wrapT = THREE.RepeatWrapping;
+			checkerboard.generateMipmaps = true;
+			checkerboard.needsUpdate = true;
+
+			// create material
+			let threeMaterial = new THREE.MeshPhongMaterial(materialSettings);
+
+			// create wireframe
+			wireframe = new THREE.LineSegments();
+			wireframe.geometry = new THREE.WireframeGeometry(threeGeometry);
+			wireframe.material = new THREE.LineBasicMaterial({
+				color: 0x000000,
+				linewidth: 0.75
+			});
+
+			// create mesh
+			threeMesh = new THREE.Mesh(threeGeometry, threeMaterial);
+		}
+
+		function initThreeUvMesh() {
+			// create geometry object
+			threeUvGeometry = new THREE.BufferGeometry();
+
+			// allocate color buffer
+			let V = mesh.vertices.length;
+			uvColors = new Float32Array(V * 3);
+
+			// set geometry
+			threeUvGeometry.setIndex(new THREE.BufferAttribute(indices, 1));
+			threeUvGeometry.addAttribute("position", new THREE.BufferAttribute(uvs, 3));
+			threeUvGeometry.addAttribute("uv", new THREE.BufferAttribute(uvs, 3));
+			threeUvGeometry.addAttribute("normal", new THREE.BufferAttribute(normals, 3));
+			threeUvGeometry.addAttribute("color", new THREE.BufferAttribute(uvColors, 3));
+
+			// create material
+			let threeUvMaterial = new THREE.MeshPhongMaterial(materialSettings);
+
+			// create wireframe
+			uvWireframe = new THREE.LineSegments();
+			uvWireframe.geometry = new THREE.WireframeGeometry(threeUvGeometry);
+			uvWireframe.material = new THREE.LineBasicMaterial({
+				color: 0x000000,
+				linewidth: 0.75
+			});
+
+			// create mesh
+			threeUvMesh = new THREE.Mesh(threeUvGeometry, threeUvMaterial);
+			threeUvMesh.translateX(-0.4);
+		}
+
+		function initThreeSphereMesh(v) {
+			let createdSphere = false;
+			if (!threeSphereMap.has(v.index)) {
+				let threeSphereMesh = new THREE.Mesh(new THREE.SphereGeometry(0.015));
+
+				let center = parameterization[v];
+				threeSphereMesh.position.set(center.x - 0.4, center.y, center.z);
+				uvScene.add(threeSphereMesh);
+				threeSphereMap.set(v.index, threeSphereMesh);
+
+				createdSphere = true;
+			}
+
+			for (let [index, threeSphereMesh] of threeSphereMap) {
+				if (index === v.index) threeSphereMesh.material.color.setHex(0xff5500);
+				else threeSphereMesh.material.color.setHex(0xffff00);
+			}
+
+			return createdSphere;
+		}
+
+		function initControls() {
+			controls = new THREE.TrackballControls(camera, renderer.domElement);
+			controls.rotateSpeed = 5.0;
+		}
+
+		function addEventListeners() {
+			window.addEventListener("resize", onWindowResize, false);
+		}
+
+		function onWindowResize() {
+			camera.aspect = window.innerWidth / window.innerHeight;
+			if (parameterization) camera.aspect *= 0.5;
+			camera.updateProjectionMatrix();
+
+			uvCamera.aspect = 0.5 * window.innerWidth / window.innerHeight;
+			uvCamera.updateProjectionMatrix();
+
+			renderer.setSize(window.innerWidth, window.innerHeight);
+			controls.handleResize();
+			render();
+		}
+
+		function animate() {
+			requestAnimationFrame(animate);
+			controls.update();
+			render();
+		}
+
+		function render() {
+			// set viewport and render mesh
+			let width = window.innerWidth;
+			if (parameterization) width = Math.floor(width * 0.5);
+
+			renderer.setViewport(0.0, 0.0, width, window.innerHeight);
+			renderer.setScissor(0.0, 0.0, width, window.innerHeight);
+			renderer.setScissorTest(true);
+			renderer.render(scene, camera);
+
+			// set viewport and render parameterization
+			if (parameterization) {
+				renderer.setViewport(width, 0.0, width, window.innerHeight);
+				renderer.setScissor(width, 0.0, width, window.innerHeight);
+				renderer.setScissorTest(true);
+				renderer.render(uvScene, uvCamera);
+			}
+		}
+	</script><div><canvas width="2636" height="1376" style="width: 1318px; height: 688px;"></canvas></div><div class="dg ac"><div class="dg main a" style="width: 245px;"><div style="width: 6px; margin-left: -3px; height: 140px; cursor: ew-resize; position: absolute;"></div></div>
+
+
+
+<iframe id="nwr4q0Od" frameborder="0" src="./Tutte Embedding_files/translateSandbox.html" style="width: 0px; height: 0px; display: none;"></iframe></body></html>
