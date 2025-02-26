@@ -73,18 +73,13 @@ class TutteEmbedding {
 					
 					const theta = l/radius;
 					var sf = 1;
-					const t = 0.0;
+					const t = 1.0;
 					
-
+					
+					// Please edit here to see if you can make the parametrisation map to a square instead of a circle.
 					
 					u0 = radius * Math.cos(theta) * sf;
 					v0 = -radius * Math.sin(theta) * sf;
-					
-					
-					
-					
-					
-					
 					
 					
 					
